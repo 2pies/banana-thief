@@ -5,11 +5,10 @@ import { useState } from 'react';
 const isDev = false;
 // const isDev = true;
 
-type roleT = 'thief' | 'normal' | 'thief-cover' | 'bomb';
+type roleT = 'thief' | 'normal' | 'bomb';
 const roleMap: Record<roleT, string> = {
 	thief: '👑',
 	normal: '💭',
-	'thief-cover': '🖐️',
 	bomb: '💥',
 };
 
@@ -43,8 +42,8 @@ const preSet: Array<{
 	{ name: '5P 👑 🖐️\n🖐️⏰ = 👑⏰', pplNum: 5, hasBomb: false },
 	{ name: '6P 👑 🖐️\n🖐️⏰ = 7⏰', pplNum: 6, hasBomb: false },
 	{ name: '6P 👑 🖐️ 💥\n🖐️⏰ = 7⏰', pplNum: 6, hasBomb: true },
-	{ name: '7P 👑 🖐️2\n🖐️⏰ = 7⏰\n🙈👑', pplNum: 7, hasBomb: false },
-	{ name: '7P 👑 🖐️2 💥\n🖐️⏰ = 7⏰\n🙈👑', pplNum: 7, hasBomb: true },
+	{ name: '7P 👑 🖐️2\n🖐️⏰ = 7⏰\n🖐️❌👑', pplNum: 7, hasBomb: false },
+	{ name: '7P 👑 🖐️2 💥\n🖐️⏰ = 7⏰\n🖐️❌👑', pplNum: 7, hasBomb: true },
 	{ name: '8P 👑 🖐️2\n🖐️⏰ = 7⏰', pplNum: 8, hasBomb: false },
 	{ name: '8P 👑 🖐️2 💥\n🖐️⏰ = 7⏰', pplNum: 8, hasBomb: true },
 ];
@@ -88,7 +87,7 @@ const StageSetup = (props: { setStore: (s: storeT) => void }) => {
 					<button
 						key={p.name}
 						onClick={() => onClick(p)}
-						className="border border-blue-400 rounded-lg p-8 whitespace-pre-wrap leading-8"
+						className="border border-blue-400 rounded-lg py-6 whitespace-pre-wrap leading-8"
 					>
 						{p.name}
 					</button>
